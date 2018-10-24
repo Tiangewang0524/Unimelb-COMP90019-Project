@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <script src="http://cdn.bootcss.com/echarts/3.2.3/echarts.min.js"></script>
+    <style>
+    <!--css-->
+  	<style type="text/css">
+	*{margin:0px; padding:0px;}
+	body{background:url('img/title.jpg') repeat-x, url('img/bg.jpg');}
+
+	.nav{width:924px; height:60px; margin:40px auto;}
+
+
+	.nav ul li{list-style-type:none; height:60px; line-height:60px; float:left; color:black; border:1px solid #000; width:180px; text-indent:center; font-size:12px; text-align:center; background:-webkit-linear-gradient(top, rgba(0,0,0,0.2), rgba(0,0,0,0.6)); box-shadow:1px -1px 12px #fff;}
+	.nav ul li:hover{background:rgba(6,4,8,0.8)}
+	.nav ul li.first{border-radius:5px 0px 0px 5px;}
+	.nav ul li.last{border-radius:0px 5px 5px 0px;}
+	.nav ul li a{text-decoration:none; color:#fff;}
+
+	ul
+	{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	}
+
+	li
+	{
+	display:inline;
+	}
+
+	.nav {
+    text-align:center;
+	}
+	.nav ul {
+	    display:inline-block;
+	}
+	.nav li {
+	    float:left;
+	}
+	.nav li + li {
+	    margin-left:0px;
+	}
+
+	.navbar {
+	    display:table;
+	    margin:0 auto;
+	}
+	.navbar li {
+	    display:table-cell;
+	}
+	.navbar li + li {
+	    padding-left:20px;
+	}
+	.navbar {
+    text-align:center;
+	}
+	</style>
+</head>
+<body>
+	<div class="nav">
+		<ul>
+		<li><a href="coord.html">Coordinate proportion diagram</a></li>
+		<li><a href="active.html">Active user proportion diagram</a></li>
+		<li><a href="CR1.html">CR1 bot proportion diagram</a></li>
+		<li><a href="CR2.html">CR2 bot proportion diagram</a></li>
+		<li><a href="CR3.html">CR3 bot proportion diagram</a></li>
+		<li><a href="CR12.html">CR1&2 bot proportion diagram</a></li>
+		<li><a href="CR23.html">CR2&3 bot proportion diagram</a></li>
+		<li><a href="CR3_analysis.html">CR3 bot analysis</a></li>
+		<li><a href="CR23_analysis.html">CR2&3 bot analysis</a></li>
+		<li><a href="bot.html">Suspect bot proportion diagram</a></li>
+
+		</ul>
+	</div>
+	<br></br>
+	<br></br>
+	<br></br>
+	<div class="navbar" id="main2" style="width: 700px;height:500px;"></div>
+    <script type="text/javascript">
+        var myChart2 = echarts.init(document.getElementById('main2'));
+ 
+		var data = [
+		    [0,12,12,'Kensington Weather'],[2776,12645,15421,'Trendsmap Melbourne'],[0,56,56,'BettaChange'],[0,200,200,'FM Global Careers'],[333,613,946,'Kylie Loy'],[1,584,585,'Melbourne Weather'],[60,50,110,'The Cupcake Desire'],[180,248,428,'Kensington Market'],[22,2,24,'BabyCarriages'],[17,16,33,'Vogue Dental Studios'],[53,24,77,'MarminaFitness'],[16,20,36,'Charlotte Eddy'],[7,5,12,'Nicholas Matthews'],[236,259,495,'SuperRadNailSisters'],[500,446,946,'Golden Monkey'],[1778,498,2276,'eurotrash'],[31,21,52,'Itsy Bitsy Chef'],[61,1463,1524,'Emerson'],[6,871,877,'Sol Tempore'],[98,343,441,'Broken Lock'],[1662,1093,2755,'Five Walls'],[56,145,201,'DelhiStreets'],[344,148,492,'Isit Cafe Prahran'],[348,242,590,'Bridal & Deb Room'],[38,50,88,'Sunshine Roller SK8'],[310,641,951,'Panama Dining Room'],[451,2093,2544,'Brown-Forman'],[1273,759,2032,'Oscar Cooper'],[28,10,38,'HannaH'],[170,138,308,'Sails on the bay'],[940,427,1367,'Vibes fitness Melb'],[2,1,3,'OliveOil&Butter'],[292,359,651,'TM-MEL Health Jobs'],[1023,526,1549,'Decanters By The Bay'],[377,116,493,'Roccs Burger Cafe'],[17,291,308,'TransitFeeds'],[298,318,616,'TMJ-MEL Pharm. Jobs'],[2339,1030,3369,'The History'],[107,44,151,'RPI Academy'],[202,232,434,'Toni&Guy Brighton Au'],[19,4,23,'Lavender & Rose'],[66,26,92,'Amy Holdsworth'],[3645,7538,11183,'Ingram Content Group'],[1285,320,1605,'IngramCareers'],[331,322,653,'Dymocks Vic Gardens'],[141,132,273,'ADRIANOMASTERTAILOR'],[301,320,621,'TMJ-MEL Retail Jobs'],[14,220,234,'Jobs at CWT'],[51,25,76,'Daniel Herrmann-Zoll'],[25,34,59,'Cocoa Moon Cafe'],[400,354,754,'The ValleyCellardoor'],[52,45,97,'Masani Dining'],[474,376,850,'Caffe e Cucina'],[243,1019,1262,'SKINNER & HACKETT'],[365,12091,12456,'Antonio Bachour'],[18218,34089,52307,'Rich McLean : Artist'],[366,371,737,'Da Noi Restaurant'],[79,161,240,'The Front Page'],[53,43,96,'Foundry Gym'],[152,740,892,'CrossFit South Yarra'],[4787,9676,14463,'Paul Wilson'],[225,147,372,'Frank Piccolo'],[174,196,370,'TMJ-MEL Art Jobs'],[204,65,269,'Serena'],[208,3156,3364,'Nature Careers'],[273,327,600,'TMJ-MEL HRTA Jobs'],[165,739,904,'Deluxe Guitars'],[612,270,882,'HUSHeducation'],[200,61,261,'growingbones'],[144,77,221,'Matt Clements'],[207,25,232,'Marquette IP'],[404,720,1124,'$TALE FRY'],[51,56,107,'Oh! Jean Records'],[218,120,338,'Clinica Lase'],[107,3357,3464,'Alex Felez Buchholz'],[1307,6648,7955,'Compare Education $$'],[1142,1259,2401,'The Woodlands Hotel'],[473,549,1022,'Milking Station'],[366,347,713,'Hunter Neversleeps'],[308,332,640,'TMJ-MEL Bank Jobs'],[1693,6463,8156,'Sophie Petzal'],[1806,1299,3105,'John Charles'],[449,369,818,'Dean Lewins'],[216,227,443,'Studio Moso'],[531,3635,4166,'Accenture AU & NZ'],[996,2165,3161,'Eric DiLauro Online Coach & Consultant'],[198,75,273,'Paul Clarke'],[130,137,267,'Sagar Sethi'],[561,444,1005,'Kimchi Pete']
+		];
+
+		var option2 = {
+		    backgroundColor: new echarts.graphic.RadialGradient(0.3, 0.3, 0.8, [{
+		        offset: 0,
+		        color: '#f7f8fa'
+		    }, {
+		        offset: 1,
+		        color: '#cdd0d5'
+		    }]),
+		    title: {
+		        text: 'The distribution for suspect bots',
+		        left: 'center',
+		    },
+		    xAxis: {
+		        name:'followees',  
+		        splitLine: {
+		            lineStyle: {
+		                type: 'dashed'
+		            }
+		        }
+		    },
+		    yAxis: {
+		        name:'followers',  
+		        splitLine: {
+		            lineStyle: {
+		                type: 'dashed'
+		            }
+		        },
+		        scale: true
+		    },
+		    series: [{
+		        data: data,
+		        type: 'scatter',
+		        symbolSize: function (data) {
+		            return Math.sqrt(data[2]) / 5;
+		        },
+		        label: {
+		            emphasis: {
+		                show: true,
+		                formatter: function (param) {
+		                    return param.data[3];
+		                },
+		                position: 'top'
+		            }
+		        },
+		        itemStyle: {
+		            normal: {
+		                shadowBlur: 10,
+		                shadowColor: 'rgba(120, 36, 50, 0.5)',
+		                shadowOffsetY: 5,
+		                color: new echarts.graphic.RadialGradient(0.4, 0.3, 1, [{
+		                    offset: 0,
+		                    color: 'rgb(251, 118, 123)'
+		                }, {
+		                    offset: 1,
+		                    color: 'rgb(204, 46, 72)'
+		                }])
+		            }
+		        }
+		    }]
+		};
+
+        myChart2.setOption(option2);
+    </script>
+	<br></br>
+	<br></br>
+    <div class="navbar" id="main" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('main'));
+ 
+		var option = {
+		    title: {
+		        text: 'Users who send tweets in same coordinates (Suspected bots),\n in all active users',
+		        subtext: 'Users never moved regard as suspect bot under coordinates criterion',
+		        left: 'center',
+		        itemGap:20
+		    },
+		    tooltip : {
+		        trigger: 'item',
+		        formatter: "{a} <br/>{b} : {c} ({d}%)"
+		    },
+		    legend: {
+		        // orient: 'vertical',
+		        // top: 'middle',
+		        bottom: 10,
+		        left: 'center',
+		        data: ['Suspected bots','Others']
+		    },
+		    series : [
+		        {
+		            type: 'pie',
+		            radius : '50%',
+		            center: ['50%', '50%'],
+		            selectedMode: 'single',
+		            data:[
+		                {value:89,name: 'Suspected bots'},
+		                {value:11787, name: 'Others'}
+		            ],
+		            itemStyle: {
+		                emphasis: {
+		                    shadowBlur: 10,
+		                    shadowOffsetX: 0,
+		                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+		                }
+		            }
+		        }
+		    ]
+		};
+
+        myChart.setOption(option);
+    </script>
+</body>
+</html>

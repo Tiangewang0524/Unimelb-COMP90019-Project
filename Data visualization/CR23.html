@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <script src="http://cdn.bootcss.com/echarts/3.2.3/echarts.min.js"></script>
+    <style>
+    <!--css-->
+  	<style type="text/css">
+	*{margin:0px; padding:0px;}
+	body{background:url('img/title.jpg') repeat-x, url('img/bg.jpg');}
+
+	.nav{width:924px; height:60px; margin:40px auto;}
+
+
+	.nav ul li{list-style-type:none; height:60px; line-height:60px; float:left; color:black; border:1px solid #000; width:180px; text-indent:center; font-size:12px; text-align:center; background:-webkit-linear-gradient(top, rgba(0,0,0,0.2), rgba(0,0,0,0.6)); box-shadow:1px -1px 12px #fff;}
+	.nav ul li:hover{background:rgba(6,4,8,0.8)}
+	.nav ul li.first{border-radius:5px 0px 0px 5px;}
+	.nav ul li.last{border-radius:0px 5px 5px 0px;}
+	.nav ul li a{text-decoration:none; color:#fff;}
+
+	ul
+	{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	}
+
+	li
+	{
+	display:inline;
+	}
+
+	.nav {
+    text-align:center;
+	}
+	.nav ul {
+	    display:inline-block;
+	}
+	.nav li {
+	    float:left;
+	}
+	.nav li + li {
+	    margin-left:0px;
+	}
+
+	.navbar {
+	    display:table;
+	    margin:0 auto;
+	}
+	.navbar li {
+	    display:table-cell;
+	}
+	.navbar li + li {
+	    padding-left:20px;
+	}
+	.navbar {
+    text-align:center;
+	}
+	</style>
+</head>
+<body>
+	<div class="nav">
+		<ul>
+		<li><a href="coord.html">Coordinate proportion diagram</a></li>
+		<li><a href="active.html">Active user proportion diagram</a></li>
+		<li><a href="CR1.html">CR1 bot proportion diagram</a></li>
+		<li><a href="CR2.html">CR2 bot proportion diagram</a></li>
+		<li><a href="CR3.html">CR3 bot proportion diagram</a></li>
+		<li><a href="CR12.html">CR1&2 bot proportion diagram</a></li>
+		<li><a href="CR23.html">CR2&3 bot proportion diagram</a></li>
+		<li><a href="CR3_analysis.html">CR3 bot analysis</a></li>
+		<li><a href="CR23_analysis.html">CR2&3 bot analysis</a></li>
+		<li><a href="bot.html">Suspect bot proportion diagram</a></li>
+
+		</ul>
+	</div>
+	<br></br>
+	<br></br>
+	<br></br>
+	<ul class="navbar">
+		<li>The set for bots under different criterion</li>
+	</ul>
+	<div class="navbar">
+    	<img src="venn.png" width="600px" height="400px">
+	</div>
+    <br></br>
+    <br></br>
+	<div class="navbar" id="main" style="width: 700px;height:500px;"></div>
+    <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('main'));
+ 
+		var data = [
+		        [329,20,349, 'Samy ANGEL'],[844,68,912,'Michel Vallance'],[1587, 114, 1701, 'Ankur Patel'],[1941, 140, 2081, 'JacquelineVictoriaReilly']
+		];
+
+		var option = {
+		    backgroundColor: new echarts.graphic.RadialGradient(0.3, 0.3, 0.8, [{
+		        offset: 0,
+		        color: '#f7f8fa'
+		    }, {
+		        offset: 1,
+		        color: '#cdd0d5'
+		    }]),
+		    title: {
+		        text: 'The distribution for suspect bots',
+		        left: 'center',
+		    },
+		    xAxis: {
+		        name:'followees',  
+		        splitLine: {
+		            lineStyle: {
+		                type: 'dashed'
+		            }
+		        }
+		    },
+		    yAxis: {
+		        name:'followers',  
+		        splitLine: {
+		            lineStyle: {
+		                type: 'dashed'
+		            }
+		        },
+		        scale: true
+		    },
+		    series: [{
+		        data: data,
+		        type: 'scatter',
+		        symbolSize: function (data) {
+		            return Math.sqrt(data[2]);
+		        },
+		        label: {
+		            emphasis: {
+		                show: true,
+		                formatter: function (param) {
+		                    return param.data[3];
+		                },
+		                position: 'top'
+		            }
+		        },
+		        itemStyle: {
+		            normal: {
+		                shadowBlur: 10,
+		                shadowColor: 'rgba(120, 36, 50, 0.5)',
+		                shadowOffsetY: 5,
+		                color: new echarts.graphic.RadialGradient(0.4, 0.3, 1, [{
+		                    offset: 0,
+		                    color: 'rgb(251, 118, 123)'
+		                }, {
+		                    offset: 1,
+		                    color: 'rgb(204, 46, 72)'
+		                }])
+		            }
+		        }
+		    }]
+		};
+
+        myChart.setOption(option);
+    </script>
+	<br></br>
+    <div class="navbar" id="main2" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        var myChart2 = echarts.init(document.getElementById('main2'));
+ 
+		var option2 = {
+		    title: {
+		        text: 'Users who follow far more than being followed,\n and retweet far more than original (Suspected bots),\n in all active users',
+		        subtext: 'bots under follow & retweet criterion',
+		        left: 'center',
+		        itemGap:10
+		    },
+		    tooltip : {
+		        trigger: 'item',
+		        formatter: "{a} <br/>{b} : {c} ({d}%)"
+		    },
+		    legend: {
+		        // orient: 'vertical',
+		        // top: 'middle',
+		        bottom: 10,
+		        left: 'center',
+		        data: ['Suspected bots','Others']
+		    },
+		    series : [
+		        {
+		            type: 'pie',
+		            radius : '50%',
+		            center: ['50%', '50%'],
+		            selectedMode: 'single',
+		            data:[
+		                {value:4,name: 'Suspected bots'},
+		                {value:11872, name: 'Others'}
+		            ],
+		            itemStyle: {
+		                emphasis: {
+		                    shadowBlur: 10,
+		                    shadowOffsetX: 0,
+		                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+		                }
+		            }
+		        }
+		    ]
+		};
+
+        myChart2.setOption(option2);
+
+    </script>
+</body>
+</html>

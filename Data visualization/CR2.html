@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <script src="http://cdn.bootcss.com/echarts/3.2.3/echarts.min.js"></script>
+    <style>
+    <!--css-->
+  	<style type="text/css">
+	*{margin:0px; padding:0px;}
+	body{background:url('img/title.jpg') repeat-x, url('img/bg.jpg');}
+
+	.nav{width:924px; height:60px; margin:40px auto;}
+
+
+	.nav ul li{list-style-type:none; height:60px; line-height:60px; float:left; color:black; border:1px solid #000; width:180px; text-indent:center; font-size:12px; text-align:center; background:-webkit-linear-gradient(top, rgba(0,0,0,0.2), rgba(0,0,0,0.6)); box-shadow:1px -1px 12px #fff;}
+	.nav ul li:hover{background:rgba(6,4,8,0.8)}
+	.nav ul li.first{border-radius:5px 0px 0px 5px;}
+	.nav ul li.last{border-radius:0px 5px 5px 0px;}
+	.nav ul li a{text-decoration:none; color:#fff;}
+
+	ul
+	{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	}
+
+	li
+	{
+	display:inline;
+	}
+
+	.nav {
+    text-align:center;
+	}
+	.nav ul {
+	    display:inline-block;
+	}
+	.nav li {
+	    float:left;
+	}
+	.nav li + li {
+	    margin-left:0px;
+	}
+
+	.navbar {
+	    display:table;
+	    margin:0 auto;
+	}
+	.navbar li {
+	    display:table-cell;
+	}
+	.navbar li + li {
+	    padding-left:20px;
+	}
+	.navbar {
+    text-align:center;
+	}
+	</style>
+</head>
+<body>
+	<div class="nav">
+		<ul>
+		<li><a href="coord.html">Coordinate proportion diagram</a></li>
+		<li><a href="active.html">Active user proportion diagram</a></li>
+		<li><a href="CR1.html">CR1 bot proportion diagram</a></li>
+		<li><a href="CR2.html">CR2 bot proportion diagram</a></li>
+		<li><a href="CR3.html">CR3 bot proportion diagram</a></li>
+		<li><a href="CR12.html">CR1&2 bot proportion diagram</a></li>
+		<li><a href="CR23.html">CR2&3 bot proportion diagram</a></li>
+		<li><a href="CR3_analysis.html">CR3 bot analysis</a></li>
+		<li><a href="CR23_analysis.html">CR2&3 bot analysis</a></li>
+		<li><a href="bot.html">Suspect bot proportion diagram</a></li>
+
+		</ul>
+	</div>
+	<br></br>
+	<br></br>
+	<br></br>
+	<div class="navbar" id="main2" style="width: 700px;height:500px;"></div>
+    <script type="text/javascript">
+        var myChart2 = echarts.init(document.getElementById('main2'));
+ 
+		var data = [
+		    [128,11,139,'Rohit Reddy Gaddam'],[125,8,133,'Ejsophiakelly'],[174,12,186,'M.J. Hudson'],[1213,104,1317,'Tip Star'],[250,10,260,'Mary Stanley'],[1372,63,1435,'Max Alexander'],[232,13,245,'Triestina'],[499,26,525,'Ethan'],[1034,95,1129,'あ(イライラ)'],[405,14,419,'Jade Ward'],[387,12,399,'Paula Oldridge'],[375,28,403,'strawhat_93'],[1586,96,1682,'Leadback'],[192,8,200,'colombiano'],[188,7,195,'TT'],[286,20,306,'Scott Rowntree'],[337,26,363,'HusbandsOfMelbourne'],[107,6,113,'😍'],[642,47,689,'Wotton Lang'],[569,32,601,'simon couch'],[427,30,457,'Tristan'],[247,13,260,'dali_22'],[282,19,301,'#Lesley'],[1177,101,1278,'Ash_ley.'],[148,13,161,'Christian'],[280,18,298,'Mmk'],[123,8,131,'Thsau'],[1097,103,1200,'Nish'],[223,16,239,'Sheree'],[330,13,343,'Francis Moore'],[254,14,268,'ぽぶた'],[617,47,664,'Harry'],[1341,79,1420,'jack'],[990,90,1080,'Cameron Lucas'],[212,15,227,'Jack Wilder'],[204,13,217,'Colette Jurczyk'],[176,11,187,'ychauhan'],[249,21,270,'🇯🇵岩太郎'],[1664,155,1819,'AJ 🇦🇺🇵🇭'],[877,20,897,'Horndady67 🇦🇺'],[367,30,397,'Garth Dandy'],[498,36,534,'S君'],[283,23,306,'Sunil Sathyanarayana'],[454,41,495,'Arnav Singh'],[5000,80,5080,'Kim'],[329,20,349,'Samy ANGEL'],[131,4,135,'AC1 Aweiss Mirza'],[420,27,447,'Sarah Kaddour'],[202,20,222,'Graham Cant'],[125,8,133,'Zach_am'],[144,11,155,'hideo kojima wishes he was yoko taro'],[310,24,334,'EliteGutrunner24'],[143,11,154,'Liam J.M'],[162,13,175,'Mr Coverage'],[2370,236,2606,'Pete de Vries'],[282,20,302,'Hercule Poirot'],[354,7,361,'DavidPeterMeier'],[241,19,260,'Chris Grima™'],[2719,158,2877,'Nick Katsilis'],[860,72,932,'Jack'],[1106,100,1206,'depression napTM'],[146,8,154,'John Cosstick'],[852,64,916,'Will Newby'],[180,12,192,'sarah kate'],[212,19,231,'meat'],[103,6,109,'Mister.Z'],[332,21,353,'Jack Belcher'],[263,17,280,'goraya'],[565,45,610,'G. McP'],[502,29,531,'calamari'],[136,10,146,'Dermot'],[844,68,912,'Michel Vallance'],[581,48,629,'Your Friendly Neighbourhood Aura'],[345,25,370,'ohwellwhatevernevermind'],[665,63,728,'Maggie Muir'],[441,39,480,'desiologydj'],[426,26,452,'VikAgainstTheWorld'],[911,56,967,'adstheo'],[1587,114,1701,'Ankur Patel'],[2037,55,2092,'andy'],[189,16,205,'Tongu Eincheek'],[1426,41,1467,'Connor W. Evans 💎'],[713,66,779,'leigh harrison'],[167,14,181,'parots'],[1556,138,1694,'Harry, from the house of stale memes'],[564,16,580,'YSKR'],[131,10,141,'rach_rich'],[449,25,474,'Beilul'],[250,13,263,'Shayne'],[166,9,175,'Victor Wong'],[1133,64,1197,'Brodie Cowburn'],[2447,186,2633,'Lachlan Martin'],[396,17,413,'Ikhwan Retro XIX Warrior'],[350,31,381,'Phil Sherrill'],[2904,85,2989,'Smart Putter'],[113,2,115,'introvert ❄️'],[204,11,215,'Dale Fitzhenry'],[102,10,112,'Mitchell Jack Trewin'],[1941,140,2081,'JacquelineVictoriaReilly'],
+		];
+
+		var option2 = {
+		    backgroundColor: new echarts.graphic.RadialGradient(0.3, 0.3, 0.8, [{
+		        offset: 0,
+		        color: '#f7f8fa'
+		    }, {
+		        offset: 1,
+		        color: '#cdd0d5'
+		    }]),
+		    title: {
+		        text: 'The distribution for suspect bots',
+		        left: 'center',
+		    },
+		    xAxis: {
+		        name:'followees',  
+		        splitLine: {
+		            lineStyle: {
+		                type: 'dashed'
+		            }
+		        }
+		    },
+		    yAxis: {
+		        name:'followers',  
+		        splitLine: {
+		            lineStyle: {
+		                type: 'dashed'
+		            }
+		        },
+		        scale: true
+		    },
+		    series: [{
+		        data: data,
+		        type: 'scatter',
+		        symbolSize: function (data) {
+		            return Math.sqrt(data[2]) / 2;
+		        },
+		        label: {
+		            emphasis: {
+		                show: true,
+		                formatter: function (param) {
+		                    return param.data[3];
+		                },
+		                position: 'top'
+		            }
+		        },
+		        itemStyle: {
+		            normal: {
+		                shadowBlur: 10,
+		                shadowColor: 'rgba(120, 36, 50, 0.5)',
+		                shadowOffsetY: 5,
+		                color: new echarts.graphic.RadialGradient(0.4, 0.3, 1, [{
+		                    offset: 0,
+		                    color: 'rgb(251, 118, 123)'
+		                }, {
+		                    offset: 1,
+		                    color: 'rgb(204, 46, 72)'
+		                }])
+		            }
+		        }
+		    }]
+		};
+
+        myChart2.setOption(option2);
+    </script>
+	<br></br>
+	<br></br>
+    <div class="navbar" id="main" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('main'));
+ 
+		var option = {
+		    title: {
+		        text: 'Users who follow far more than being followed (Suspected bots),\n in all active users',
+		        subtext: 'Users follower/followee < 0.1 regard as suspect bot under follow criterion',
+		        left: 'center',
+		        itemGap:20
+		    },
+		    tooltip : {
+		        trigger: 'item',
+		        formatter: "{a} <br/>{b} : {c} ({d}%)"
+		    },
+		    legend: {
+		        // orient: 'vertical',
+		        // top: 'middle',
+		        bottom: 10,
+		        left: 'center',
+		        data: ['Suspected bots','Others']
+		    },
+		    series : [
+		        {
+		            type: 'pie',
+		            radius : '50%',
+		            center: ['50%', '50%'],
+		            selectedMode: 'single',
+		            data:[
+		                {value:99,name: 'Suspected bots'},
+		                {value:11777, name: 'Others'}
+		            ],
+		            itemStyle: {
+		                emphasis: {
+		                    shadowBlur: 10,
+		                    shadowOffsetX: 0,
+		                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+		                }
+		            }
+		        }
+		    ]
+		};
+
+        myChart.setOption(option);
+    </script>
+</body>
+</html>

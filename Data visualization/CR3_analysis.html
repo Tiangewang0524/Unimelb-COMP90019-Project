@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <script src="http://cdn.bootcss.com/echarts/3.2.3/echarts.min.js"></script>
+    <style>
+    <!--css-->
+  	<style type="text/css">
+	*{margin:0px; padding:0px;}
+	body{background:url('img/title.jpg') repeat-x, url('img/bg.jpg');}
+
+	.nav{width:924px; height:60px; margin:40px auto;}
+
+
+	.nav ul li{list-style-type:none; height:60px; line-height:60px; float:left; color:black; border:1px solid #000; width:180px; text-indent:center; font-size:12px; text-align:center; background:-webkit-linear-gradient(top, rgba(0,0,0,0.2), rgba(0,0,0,0.6)); box-shadow:1px -1px 12px #fff;}
+	.nav ul li:hover{background:rgba(6,4,8,0.8)}
+	.nav ul li.first{border-radius:5px 0px 0px 5px;}
+	.nav ul li.last{border-radius:0px 5px 5px 0px;}
+	.nav ul li a{text-decoration:none; color:#fff;}
+
+	ul
+	{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	}
+
+	li
+	{
+	display:inline;
+	}
+
+	.nav {
+    text-align:center;
+	}
+	.nav ul {
+	    display:inline-block;
+	}
+	.nav li {
+	    float:left;
+	}
+	.nav li + li {
+	    margin-left:0px;
+	}
+
+	.navbar {
+	    display:table;
+	    margin:0 auto;
+	}
+	.navbar li {
+	    display:table-cell;
+	}
+	.navbar li + li {
+	    padding-left:20px;
+	}
+	.navbar {
+    text-align:center;
+	}
+	</style>
+</head>
+<body>
+	<div class="nav">
+		<ul>
+		<li><a href="coord.html">Coordinate proportion diagram</a></li>
+		<li><a href="active.html">Active user proportion diagram</a></li>
+		<li><a href="CR1.html">CR1 bot proportion diagram</a></li>
+		<li><a href="CR2.html">CR2 bot proportion diagram</a></li>
+		<li><a href="CR3.html">CR3 bot proportion diagram</a></li>
+		<li><a href="CR12.html">CR1&2 bot proportion diagram</a></li>
+		<li><a href="CR23.html">CR2&3 bot proportion diagram</a></li>
+		<li><a href="CR3_analysis.html">CR3 bot analysis</a></li>
+		<li><a href="CR23_analysis.html">CR2&3 bot analysis</a></li>
+		<li><a href="bot.html">Suspect bot proportion diagram</a></li>
+
+		</ul>
+	</div>
+	<br></br>
+	<br></br>
+	<br></br>
+    <div class="navbar" id="main" style="width: 700px;height:600px;"></div>
+    <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('main'));
+ 
+		var option = {
+		    title: {
+				        text: 'Commonly used words in Tweets\nthat sent by users who retweet far more than original',
+				        left: 'center',
+				    },
+		    color: ['#3398DB'],
+		    tooltip : {
+		        trigger: 'axis',
+		        axisPointer : {            
+		            type : 'shadow'        
+		        },
+		    },
+		    grid: {
+		        left: '3%',
+		        right: '3%',
+		        bottom: '8%',
+		        top: '15%',
+		        containLabel: true
+		    },
+		    xAxis : [
+		        {
+		            type : 'category',
+		            data : ["@johnwren1950:", "australia",
+		                    "@asher_wolf:",
+		                    "@vanbadham:",
+		                    "@simonahac:",
+		                    "via",
+		                    "@sallymcmanus:",
+		                    "&amp;",
+		                    "turnbull",
+		                    "#auspol"],
+		            axisTick: {
+		                alignWithLabel: true
+		            },
+		            axisLabel:{
+								     interval:0,
+								     rotate:-30,
+								}
+		        }
+		    ],
+		    yAxis : [
+		        {
+		            type : 'value'
+		        }
+		    ],
+		    series : [
+		        {
+		            name:'Used times',
+		            type:'bar',
+		            barWidth: '50%',
+		            data:[133149,
+		                29901,
+		                42902,
+		                34701,
+		                44757,
+		                29825,
+		                59454,
+		                84775,
+		                30351,
+		                108640]
+		        }
+		    ]
+		};
+
+
+        myChart.setOption(option);
+    </script>
+    <br></br>
+    <br></br>
+    <br></br>
+    <div class="navbar" id="main2" style="width: 700px;height:600px;"></div>
+    <script type="text/javascript">
+        var myChart2 = echarts.init(document.getElementById('main2'));
+ 
+		var option2 = {
+		    title: {
+				        text: 'Commonly used words start with  ‘@’ in Tweets\n that sent by users who retweet far more than original',
+				        left: 'center',
+				    },
+		    color: ['#3398DB'],
+		    tooltip : {
+		        trigger: 'axis',
+		        axisPointer : {            
+		            type : 'shadow'        
+		        },
+		    },
+		    grid: {
+		        left: '3%',
+		        right: '3%',
+		        bottom: '8%',
+		        top: '15%',
+		        containLabel: true
+		    },
+		    xAxis : [
+		        {
+		            type : 'category',
+		            data : ["@johnwren1950:",
+					        "@julianburnside:",
+					        "@turnbullmalcolm",
+					        "@asher_wolf:",
+					        "@ritapanahi:",
+					        "@brooksbeau:",
+					        "@vanbadham:",
+					        "@simonahac:",
+					        "@beneltham:",
+					        "@sallymcmanus:"],
+		            axisTick: {
+		                alignWithLabel: true
+		            },
+		            axisLabel:{
+								     interval:0,
+								     rotate:-30,
+								}
+		        }
+		    ],
+		    yAxis : [
+		        {
+		            type : 'value'
+		        }
+		    ],
+		    series : [
+		        {
+		            name:'Used times',
+		            type:'bar',
+		            barWidth: '50%',
+		            data:[133149,
+			        28300,
+			        22010,
+			        42902,
+			        17749,
+			        22624,
+			        34701,
+			        44757,
+			        21373,
+			        59454]
+		        }
+		    ]
+		};
+
+        myChart2.setOption(option2);
+
+    </script>
+    <br></br>
+    <div class="navbar" id="main3" style="width: 700px;height:600px;"></div>
+    <script type="text/javascript">
+        var myChart3 = echarts.init(document.getElementById('main3'));
+ 
+		var option3 = {
+		    title: {
+				        text: 'Commonly used words start with ‘#’ in Tweets\n that sent by users who retweet far more than original',
+				        left: 'center',
+				    },
+		    color: ['#3398DB'],
+		    tooltip : {
+		        trigger: 'axis',
+		        axisPointer : {            
+		            type : 'shadow'        
+		        },
+		    },
+		    grid: {
+		        left: '3%',
+		        right: '3%',
+		        bottom: '8%',
+		        top: '15%',
+		        containLabel: true
+		    },
+		    xAxis : [
+		        {
+		            type : 'category',
+		            data : ["#auspol",
+					        "#insiders",
+					        "#…",
+					        "#map",
+					        "#springst",
+					        "#qanda",
+					        "#ausopen",
+					        "#marriageequality",
+					        "#ssm",
+					        "#manus"],
+		            axisTick: {
+		                alignWithLabel: true
+		            },
+		            axisLabel:{
+								     interval:0,
+								     rotate:-30,
+								}
+		        }
+		    ],
+		    yAxis : [
+		        {
+		            type : 'value'
+		        }
+		    ],
+		    series : [
+		        {
+		            name:'Used times',
+		            type:'bar',
+		            barWidth: '50%',
+		            data:[108640,
+			        6292,
+			        6329,
+			        4168,
+			        8811,
+			        6261,
+			        10256,
+			        4781,
+			        4560,
+			        4900]
+		        }
+		    ]
+		};
+
+        myChart3.setOption(option3);
+
+    </script>
+</body>
+</html>
