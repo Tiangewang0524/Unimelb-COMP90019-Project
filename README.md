@@ -30,7 +30,9 @@ Split files from 1 and import into CouchDB.
 	3. CR3. Retweets/Tweets
 	Filter users whose number of retweets is much greater than tweets.
 	At least 300 retweets and less than 100 original tweets. Tweets/Retweets < 0.1.  
-	***3.2 Deep analysis***	
+	
+
+	**3.2 Deep analysis**	
 	Some deep analysis to filter normal users and bots.
 
 **4 Data visualisation**  
