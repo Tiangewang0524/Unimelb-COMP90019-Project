@@ -32,8 +32,8 @@ Split files from 1 and import into CouchDB.
 	At least 300 retweets and less than 100 original tweets. Tweets/Retweets < 0.1.  
 	
 
-	**3.2 Deep analysis**	
-	Some deep analysis to filter normal users and bots.
+***3.2 Deep analysis***	
+Some deep analysis to filter normal users and bots.
 
 **4 Data visualisation**  
 Local host with Javascript to shows the result. 
