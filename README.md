@@ -10,8 +10,8 @@ Basic deployment shell script for NeCTAR cloud servers.
 Basic shell script for harvesting Melbourne tweets from 2017.8 to 2018.7.
 
 ## 2. Data partition and storage  
-Split files from 1 and import into CouchDB.
-Partition code is in the Data analysis/Deep analysis/o0Test.py.
+Split files from 1 and import into CouchDB.  
+Partition code is in the Deep analysis/o0Test.py.
 
 ## 3. Data analysis  
 **3.1 Elementary analysis**	
@@ -37,7 +37,8 @@ Partition code is in the Data analysis/Deep analysis/o0Test.py.
     	
 
 **3.2 Deep analysis**  
-Some deep analysis to filter normal users and bots.
+Some deep analysis to filter normal users and bots.  
+Codes are in the folder: Deep analysis.
 
 ## 4 Data visualisation  
 Local host with Javascript to show the result. 
