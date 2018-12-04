@@ -1,4 +1,5 @@
 # Unimelb-COMP90019-Project
+# Twitter most popular people and bot identification
 
 ## Based language and tools:  
 Python, Javascript, Shell, and CouchDB.
